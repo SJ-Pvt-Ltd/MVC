@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aktel.Mvc", "AletUSA\Aktel.Mvc.csproj", "{979B55AB-2099-4928-932E-B7C83BBC6545}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aktel.Domain", "Aktel.Domain\Aktel.Domain.csproj", "{F59E252F-89D0-4894-94D3-8B11B7DBE2B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistance", "Persistance\Persistance.csproj", "{0BC5A32F-6907-41F3-8EBB-45CB0A9D33D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{979B55AB-2099-4928-932E-B7C83BBC6545}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{979B55AB-2099-4928-932E-B7C83BBC6545}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{979B55AB-2099-4928-932E-B7C83BBC6545}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{979B55AB-2099-4928-932E-B7C83BBC6545}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F59E252F-89D0-4894-94D3-8B11B7DBE2B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F59E252F-89D0-4894-94D3-8B11B7DBE2B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F59E252F-89D0-4894-94D3-8B11B7DBE2B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F59E252F-89D0-4894-94D3-8B11B7DBE2B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BC5A32F-6907-41F3-8EBB-45CB0A9D33D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BC5A32F-6907-41F3-8EBB-45CB0A9D33D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BC5A32F-6907-41F3-8EBB-45CB0A9D33D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BC5A32F-6907-41F3-8EBB-45CB0A9D33D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

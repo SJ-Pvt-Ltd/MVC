@@ -1,0 +1,7 @@
+TODO:
+
+Create a sub Nav for Filtereing 
+Implement Product Categories
+Think and implement Carriers The current is temp 
+Implement Hover functionality for sidebar CSS
+

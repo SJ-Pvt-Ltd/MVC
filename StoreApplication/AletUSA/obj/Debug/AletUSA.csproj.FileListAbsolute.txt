@@ -1,0 +1,5 @@
+C:\Users\sjoshi\Documents\MVC\StoreApplication\AletUSA\bin\AletUSA.dll
+C:\Users\sjoshi\Documents\MVC\StoreApplication\AletUSA\bin\AletUSA.pdb
+C:\Users\sjoshi\Documents\MVC\StoreApplication\AletUSA\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\sjoshi\Documents\MVC\StoreApplication\AletUSA\obj\Debug\AletUSA.dll
+C:\Users\sjoshi\Documents\MVC\StoreApplication\AletUSA\obj\Debug\AletUSA.pdb

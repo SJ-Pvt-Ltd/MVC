@@ -1,0 +1,35 @@
+Framework - AkTel USA 
+
+----------------------------------------
+Concept:
+Manufacturers are Cellphone Manufacturers
+BrandNames are Names of companies that produce accesories.
+----------------------------------------
+
+----------------------------------------
+Every Product
+- ProductCategory
+- BrandName
+- Manufacturer
+- Devices
+- Carrier (Doubt)
+
+List of ProductCategories - List of products
+List of Manufacturers - List of Phones
+List of BrandNames - List of ProductCategories
+List of Carriers - List of Phones
+List of Phones
+----------------------------------------
+
+
+----------------------------------------
+Routing and Associations 
+
+ByCarrier --> Carrier => Carrier.Get a List of Phones() --> Phone => Phone.Get a list of associated Products(Phone Model)
+
+ByManufacturer --> Manufacturer => Manufacturer.Get a List of Products(Manufactuer)
+
+ByBrandName --> BrandName => BrandName.Get a List of Products(BrandName)
+
+ByProductCategory --> ProductCategory => ProductCategory.Get a List of Products(ProductCategory).Get Filters on ProductCategory()
+----------------------------------------

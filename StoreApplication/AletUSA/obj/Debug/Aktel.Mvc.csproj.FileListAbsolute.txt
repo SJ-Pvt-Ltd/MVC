@@ -1,0 +1,16 @@
+C:\Users\sjoshi\Documents\MVC\StoreApplication\AletUSA\bin\Aktel.Mvc.dll
+C:\Users\sjoshi\Documents\MVC\StoreApplication\AletUSA\bin\Aktel.Mvc.pdb
+C:\Users\sjoshi\Documents\MVC\StoreApplication\AletUSA\bin\Aktel.Domain.dll
+C:\Users\sjoshi\Documents\MVC\StoreApplication\AletUSA\bin\Persistance.dll
+C:\Users\sjoshi\Documents\MVC\StoreApplication\AletUSA\bin\FluentNHibernate.dll
+C:\Users\sjoshi\Documents\MVC\StoreApplication\AletUSA\bin\Iesi.Collections.dll
+C:\Users\sjoshi\Documents\MVC\StoreApplication\AletUSA\bin\Antlr3.Runtime.dll
+C:\Users\sjoshi\Documents\MVC\StoreApplication\AletUSA\bin\Aktel.Domain.pdb
+C:\Users\sjoshi\Documents\MVC\StoreApplication\AletUSA\bin\Persistance.pdb
+C:\Users\sjoshi\Documents\MVC\StoreApplication\AletUSA\bin\NHibernate.xml
+C:\Users\sjoshi\Documents\MVC\StoreApplication\AletUSA\bin\FluentNHibernate.pdb
+C:\Users\sjoshi\Documents\MVC\StoreApplication\AletUSA\bin\FluentNHibernate.xml
+C:\Users\sjoshi\Documents\MVC\StoreApplication\AletUSA\bin\Iesi.Collections.xml
+C:\Users\sjoshi\Documents\MVC\StoreApplication\AletUSA\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\sjoshi\Documents\MVC\StoreApplication\AletUSA\obj\Debug\Aktel.Mvc.dll
+C:\Users\sjoshi\Documents\MVC\StoreApplication\AletUSA\obj\Debug\Aktel.Mvc.pdb

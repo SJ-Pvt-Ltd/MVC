@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{979B55AB-2099-4928-932E-B7C83BBC6545}</ProjectGuid>
+    <ProjectTypeGuids>{F85E285D-A4E0-4152-9332-AB1D724D3325};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Aktel.Mvc</RootNamespace>
+    <AssemblyName>Aktel.Mvc</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NHibernate, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 2\\Assemblies\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\FilterController.cs" />
+    <Compile Include="Controllers\HomePageController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FacetViewModel.cs" />
+    <Compile Include="Models\HeaderAndFooterViewModel.cs" />
+    <Compile Include="Models\HomePageViewModel.cs" />
+    <Compile Include="Models\SearchResultsViewModel.cs" />
+    <Compile Include="Models\SearchViewModel.cs" />
+    <Compile Include="Models\SubCategoryViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\CSS\jquery-ui-1.7.3.custom.css" />
+    <Content Include="Content\CSS\jquery.fancybox-1.3.4.css" />
+    <Content Include="Content\CSS\NavigationBar.css" />
+    <Content Include="Content\CSS\StyleSheet.css" />
+    <Content Include="Content\img\AktelLogo\Aktel_logo2.gif" />
+    <Content Include="Content\img\AktelLogo\Aktel_negative.gif" />
+    <Content Include="Content\img\AktelLogo\Aktel_orange.gif" />
+    <Content Include="Content\img\AktelLogo\Aktel_transparent.gif" />
+    <Content Include="Content\img\back.jpg" />
+    <Content Include="Content\img\bar.png" />
+    <Content Include="Content\img\box.gif" />
+    <Content Include="Content\img\Carriers\ATT.gif" />
+    <Content Include="Content\img\Carriers\BoostMobile.gif" />
+    <Content Include="Content\img\Carriers\Comcast.gif" />
+    <Content Include="Content\img\Carriers\Cricket.gif" />
+    <Content Include="Content\img\Carriers\MetroPCS.gif" />
+    <Content Include="Content\img\Carriers\Sprint.gif" />
+    <Content Include="Content\img\Carriers\T-Mobile.gif" />
+    <Content Include="Content\img\Carriers\US Cellular.gif" />
+    <Content Include="Content\img\Carriers\Verizon.gif" />
+    <Content Include="Content\img\content-two-columns.gif" />
+    <Content Include="Content\img\content-wrapper.gif" />
+    <Content Include="Content\img\Downloads\bottombarknobgray.png" />
+    <Content Include="Content\img\Downloads\Carrier.jpg" />
+    <Content Include="Content\img\Downloads\close_btn.gif" />
+    <Content Include="Content\img\Downloads\close_btn.png" />
+    <Content Include="Content\img\Downloads\Dock.png" />
+    <Content Include="Content\img\footer-wrapper.gif" />
+    <Content Include="Content\img\gradient-light.gif" />
+    <Content Include="Content\img\background_content.png" />
+    <Content Include="Content\img\gradient_blue.jpg" />
+    <Content Include="Content\img\header-wrapper-2.gif" />
+    <Content Include="Content\img\header.gif" />
+    <Content Include="Content\img\help.gif" />
+    <Content Include="Content\img\Latest\droid-pro.gif" />
+    <Content Include="Content\img\Latest\droid-pro.jpg" />
+    <Content Include="Content\img\Latest\htc-thunderbolt.gif" />
+    <Content Include="Content\img\Latest\htc-thunderbolt.jpg" />
+    <Content Include="Content\img\Latest\huawei-ascend.gif" />
+    <Content Include="Content\img\Latest\huawei-ascend.jpg" />
+    <Content Include="Content\img\Latest\iphone-4.gif" />
+    <Content Include="Content\img\Latest\iphone-4.jpg" />
+    <Content Include="Content\img\Latest\ipod-touch-4.gif" />
+    <Content Include="Content\img\Latest\ipod-touch-4.jpg" />
+    <Content Include="Content\img\Latest\lg-optimus-s.gif" />
+    <Content Include="Content\img\Latest\lg-optimus-s.jpg" />
+    <Content Include="Content\img\Latest\lg-vortex.gif" />
+    <Content Include="Content\img\Latest\lg-vortex.jpg" />
+    <Content Include="Content\img\Latest\touch4g.gif" />
+    <Content Include="Content\img\Latest\touch4g.jpg" />
+    <Content Include="Content\img\Manufacturers\Apple.jpg" />
+    <Content Include="Content\img\Manufacturers\make_amazon.gif" />
+    <Content Include="Content\img\Manufacturers\make_apple.gif" />
+    <Content Include="Content\img\Manufacturers\make_blackberry.gif" />
+    <Content Include="Content\img\Manufacturers\make_casio.gif" />
+    <Content Include="Content\img\Manufacturers\make_dell.gif" />
+    <Content Include="Content\img\Manufacturers\make_ericsson.gif" />
+    <Content Include="Content\img\Manufacturers\make_garmin.gif" />
+    <Content Include="Content\img\menu-back.gif" />
+    <Content Include="Content\img\navigation-arrow-2.gif" />
+    <Content Include="Content\img\navigation-arrow.gif" />
+    <Content Include="Content\img\navigation-wrapper-2.gif" />
+    <Content Include="Content\img\navigation.gif" />
+    <Content Include="Content\img\old-paper-texture.jpg" />
+    <Content Include="Content\img\Products\Batteries.gif" />
+    <Content Include="Content\img\Products\Battery Charger.gif" />
+    <Content Include="Content\img\Products\Bluetooth Headset.gif" />
+    <Content Include="Content\img\Products\Cell Armour.gif" />
+    <Content Include="Content\img\Products\Data Cables.gif" />
+    <Content Include="Content\img\Products\Licenced Product.gif" />
+    <Content Include="Content\img\Products\Memory Card.gif" />
+    <Content Include="Content\img\Products\Products\BLKBRY8300LION.jpg" />
+    <Content Include="Content\img\Products\Protector Case.gif" />
+    <Content Include="Content\img\Products\Screen Protector.gif" />
+    <Content Include="Content\img\separator-vertical.gif" />
+    <Content Include="Content\img\subnav-wrapper-2.gif" />
+    <Content Include="Content\img\subnav-wrapper.gif" />
+    <Content Include="Content\img\title.jpg" />
+    <Content Include="Content\Scripts\jquery-1.3.2.min.js" />
+    <Content Include="Content\Scripts\jquery-ui-1.7.3.custom.min.js" />
+    <Content Include="Content\Scripts\jquery-ui.js" />
+    <Content Include="Content\Scripts\jquery.fancybox-1.3.4.pack.js" />
+    <Content Include="Content\Scripts\jquery.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Views\Filter\ByCarrier.aspx" />
+    <Content Include="Views\Filter\ByManufacturer.aspx" />
+    <Content Include="Views\Filter\ByPhoneDevice.aspx" />
+    <Content Include="Views\Filter\ByProductCategory.aspx" />
+    <Content Include="Views\Filter\ByProductSubCategory.aspx" />
+    <Content Include="Views\Filter\Copy of ByCarrier.aspx" />
+    <Content Include="Views\Filter\FilterCategories.ascx" />
+    <Content Include="Views\Filter\RenderDefaultSidebar.ascx" />
+    <Content Include="Views\Filter\RenderDevices.ascx" />
+    <Content Include="Views\Filter\RenderProduct.ascx" />
+    <Content Include="Views\Filter\RenderSubCategories.ascx" />
+    <Content Include="Views\HomePage\RenderBrands.ascx" />
+    <Content Include="Views\HomePage\Index.aspx" />
+    <Content Include="Views\HomePage\Index1.aspx" />
+    <Content Include="Views\HomePage\RenderCarriers.ascx" />
+    <Content Include="Views\HomePage\RenderManufacturers.ascx" />
+    <Content Include="Views\HomePage\RenderProductCategories.ascx" />
+    <Content Include="Views\Search\RenderProduct.ascx" />
+    <Content Include="Views\Search\SearchResults.aspx" />
+    <Content Include="Views\Shared\Header.ascx" />
+    <Content Include="Views\Shared\Search.ascx" />
+    <Content Include="Web.config" />
+    <Content Include="Content\CSS\Site.css" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.min-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.min-vsdoc.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Aktel.Domain\Aktel.Domain.csproj">
+      <Project>{F59E252F-89D0-4894-94D3-8B11B7DBE2B4}</Project>
+      <Name>Aktel.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Persistance\Persistance.csproj">
+      <Project>{0BC5A32F-6907-41F3-8EBB-45CB0A9D33D4}</Project>
+      <Name>Persistance</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target> -->
+  <Target Name="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(ProjectDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59582</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
