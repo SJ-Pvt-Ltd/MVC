@@ -16,7 +16,7 @@ namespace Persistance.Mappings
                 .ParentKeyColumn("PhoneDeviceId")
                 .ChildKeyColumn("CarrierId");
             HasManyToMany(x => x.Products)
-                .Inverse()
+                //.Inverse()
                 .Cascade.SaveUpdate()
                 .Table("DeviceProduct")
                 .ParentKeyColumn("PhoneDeviceId")

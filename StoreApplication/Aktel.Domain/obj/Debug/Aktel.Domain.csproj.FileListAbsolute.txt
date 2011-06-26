@@ -6,3 +6,9 @@ C:\Users\sjoshi\Documents\MVC\StoreApplication\Aktel.Domain\bin\Debug\Iesi.Colle
 C:\Users\sjoshi\Documents\MVC\StoreApplication\Aktel.Domain\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\sjoshi\Documents\MVC\StoreApplication\Aktel.Domain\obj\Debug\Aktel.Domain.dll
 C:\Users\sjoshi\Documents\MVC\StoreApplication\Aktel.Domain\obj\Debug\Aktel.Domain.pdb
+C:\StoreProject\MVC\StoreApplication\Aktel.Domain\bin\Debug\Aktel.Domain.dll.config
+C:\StoreProject\MVC\StoreApplication\Aktel.Domain\bin\Debug\Aktel.Domain.dll
+C:\StoreProject\MVC\StoreApplication\Aktel.Domain\bin\Debug\Aktel.Domain.pdb
+C:\StoreProject\MVC\StoreApplication\Aktel.Domain\obj\Debug\ResolveAssemblyReference.cache
+C:\StoreProject\MVC\StoreApplication\Aktel.Domain\obj\Debug\Aktel.Domain.dll
+C:\StoreProject\MVC\StoreApplication\Aktel.Domain\obj\Debug\Aktel.Domain.pdb

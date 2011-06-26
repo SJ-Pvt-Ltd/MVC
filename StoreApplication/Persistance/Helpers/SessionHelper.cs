@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using FluentNHibernate.Cfg;
@@ -32,7 +33,7 @@ namespace Persistance
             return Fluently
                 .Configure()
                 .Database(MsSqlConfiguration.MsSql2005.ConnectionString(connectionString))
-                .Mappings(x => x.FluentMappings.AddFromAssemblyOf<ProductMap>().PersistenceModel.Conventions.Add(DefaultLazy.Never()))
+                .Mappings(x => x.FluentMappings.AddFromAssemblyOf<ProductMap>().Conventions.Add(DefaultLazy.Never()))
                 .ExposeConfiguration(x => x.SetProperty("current_session_context_class", "thread_static"))
                 .BuildSessionFactory();
         }
