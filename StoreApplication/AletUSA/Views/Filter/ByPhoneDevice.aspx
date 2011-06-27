@@ -13,7 +13,7 @@
         <div id="Header" style="">
             <%Html.RenderPartial("~/Views/Shared/Header.ascx", Model.HeaderandFooter); %>
         </div>
-        <div id="nav_bar" >
+        <div id="nav_bar">
             <div id="navigation-wrapper">
                 <div id="navigation-wrapper-2">
                     <div class="center-wrapper">
@@ -42,12 +42,14 @@
                 <%if (Model.ProductCategories.Count > 0)
                   {%>
                 <div class="content_title_sidebar">
-                    <span class="content_title_sidebar_filter">Categories:</span>
+                    <div class="content_title_sidebar_filter_box">
+                        <span class="content_title_sidebar_filter">Categories:</span></div>
                     <div class="content_content_sidebar" style="text-transform: capitalize">
                         <%foreach (var productCategory in Model.ProductCategories)
                           {%>
                         <a href="/Filter/ByCarrier/<%=Model.CarrierName %>/ByPhoneDevice/<%=Model.Name%>?category=<%=productCategory.Name%>">
-                            &#187; <%=productCategory.Name%></a>
+                            &#187;
+                            <%=productCategory.Name%></a>
                         <br />
                         <%}%>
                     </div>
@@ -56,12 +58,14 @@
                 <% if (Model.BrandNames.Count > 0)
                    {%>
                 <div class="content_title_sidebar">
-                    <span class="content_title_sidebar_filter">Brand Names</span>
+                    <div class="content_title_sidebar_filter_box">
+                        <span class="content_title_sidebar_filter">Brand Names</span></div>
                     <div class="content_content_sidebar" style="text-transform: capitalize">
                         <%foreach (var brand in Model.BrandNames)
                           {%>
                         <a href="/Filter/ByCarrier/<%=Model.CarrierName %>/ByPhoneDevice/<%=Model.Name%>?brand=<%=brand.Name %>">
-                            &#187; <%=brand.Name%></a>
+                            &#187;
+                            <%=brand.Name%></a>
                         <br />
                         <%}%>
                     </div>
@@ -70,13 +74,15 @@
                 <% if (Model.Manufacturers.Count > 0)
                    {%>
                 <div class="content_title_sidebar">
-                    <span class="content_title_sidebar_filter">Manufacturers</span>
+                    <div class="content_title_sidebar_filter_box">
+                        <span class="content_title_sidebar_filter">Manufacturers</span></div>
                     <div class="content_content_sidebar">
                         <%
                        foreach (var manufacturer in Model.Manufacturers)
                        {%>
                         <a href="/Filter/ByCarrier/<%=Model.CarrierName %>/ByPhoneDevice/<%=Model.Name%>?manufacturer=<%=manufacturer.Name%>">
-                            &#187; <%=manufacturer.Name%></a>
+                            &#187;
+                            <%=manufacturer.Name%></a>
                         <br />
                         <%
                        }%>

@@ -35,10 +35,13 @@
         </div>
         <div id="filter_categories">
             <div class="filter_bar">
+                
+                        <span class="content_title_sidebar_filter" style="margin-left:40px; color:#666666">Filter By ..</span>
                 <%if (Model.ProductCategories.Count > 0)
                   {%>
                 <div class="content_title_sidebar">
-                    <span class="content_title_sidebar_filter">Categories:</span>
+                    <div class="content_title_sidebar_filter_box">
+                        <span class="content_title_sidebar_filter">Categories:</span></div>
                     <div class="content_content_sidebar" style="text-transform: capitalize">
                         <%foreach (var productCategory in Model.ProductCategories)
                           {%>
@@ -53,7 +56,8 @@
                 <% if (Model.BrandNames.Count > 0)
                    {%>
                 <div class="content_title_sidebar">
-                    <span class="content_title_sidebar_filter">Brand Names</span>
+                    <div class="content_title_sidebar_filter_box">
+                        <span class="content_title_sidebar_filter">Brand Names</span></div>
                     <div class="content_content_sidebar" style="text-transform: capitalize">
                         <%foreach (var brand in Model.BrandNames)
                           {%>
@@ -67,7 +71,8 @@
                 <% if (Model.AssociatedDevices.Count > 0)
                    {%>
                 <div class="content_title_sidebar">
-                    <span class="content_title_sidebar_filter">Cellphone Devices</span>
+                    <div class="content_title_sidebar_filter_box">
+                        <span class="content_title_sidebar_filter">Cellphone Devices</span></div>
                     <div class="content_content_sidebar">
                         <%
                        foreach (var device in Model.AssociatedDevices)

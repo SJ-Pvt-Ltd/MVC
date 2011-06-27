@@ -62,11 +62,18 @@
 {
 	display: block;
 	font-size: 1em;
-	padding: .5em 1em .5em 1em;
-	background-color:#FFF;
-	-webkit-border-radius: 10px;
+	background-color: #FFF;
+	-webkit-border-radius: 0px;
 	color: #AAA;
-	
+	padding-top: 0px;
+	border:solid 1px #D1D1D1;
+	margin:4px;
+}
+
+.content_title_sidebar_filter_box
+{
+	border: solid 1px rgb(100, 100, 100);
+	background-color: rgb(100, 100, 100);
 }
 
 .content_title_sidebar_filter
@@ -74,9 +81,10 @@
 	text-transform: capitalize;
 	padding-bottom: 1px;
 	border-bottom: 1px dotted #D1D1D1;
-	color: #434E46;
-	font-size: 1.2em;
+	color: #eeeeee;
+	font-size: 1.3em;
 	font-family: 'Bookman Old Style';
+	margin-left: 8px;
 }
 
 .content_content_sidebar
@@ -94,17 +102,18 @@
 {
 	font-family: Verdana;
 	cursor: auto;
-	color: #BC7305;
+	color: #666666;
 	text-decoration: none;
 	text-transform: capitalize;
 	padding: 4px;
+	font-size: 10pt;
 }
 
 .content_content_sidebar a:hover
 {
 	font-family: Verdana;
 	cursor: auto;
-	color: #D88405;
+	color: #666667;
 	text-decoration: none;
 	font-style: normal;
 	font-weight: bold;

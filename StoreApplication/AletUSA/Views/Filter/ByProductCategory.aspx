@@ -45,7 +45,7 @@
         <div id="filter_categories">
             <div class="filter_bar">
                 <div class="content_title_sidebar">
-                    <span class="content_title_sidebar_filter">All Product Categories</span>
+                    <div class="content_title_sidebar_filter_box"><span class="content_title_sidebar_filter">All Product Categories</span></div>
                     <div class="content_content_sidebar">
                         <%
                             foreach (var category in Model.ProductCategories)
