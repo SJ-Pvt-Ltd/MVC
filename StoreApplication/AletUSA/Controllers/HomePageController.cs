@@ -20,12 +20,17 @@ namespace Aktel.Mvc.Controllers
 
         public ActionResult Index1()
         {
-            var homePageData = new HomePageViewModel();
+            var homePageData = new HomePageViewModel
+                                   {
+                                       HeaderandFooter =
+                                           {
+                                               Manufacturers = new ManufacturerService(Session).GetManufacturers(),
+                                               Carriers = new CarrierService(Session).GetCarriers(),
+                                               BrandNames = new BrandService(Session).GetBrands(),
+                                               ProductCategories = new ProductCategoryService(Session).GetProductCategories()
+                                           }
+                                   };
             //dataService.CreateProductsinDb();
-            homePageData.Manufacturers = new ManufacturerService(Session).GetManufacturers();
-            homePageData.Carriers = new CarrierService(Session).GetCarriers();
-            homePageData.BrandNames = new BrandService(Session).GetBrands();
-            homePageData.ProductCategories = new ProductCategoryService(Session).GetProductCategories();
             var result = new ViewResult
                              {
                                  ViewData = {Model = homePageData}

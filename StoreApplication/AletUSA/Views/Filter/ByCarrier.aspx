@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" href="../../Content/CSS/jquery-ui-1.7.3.custom.css" />
     <script src="../../Content/Scripts/jquery.js" type="text/javascript"></script>
     <script src="../../Content/Scripts/jquery-ui.js" type="text/javascript"></script>
+    <link href="../../Content/CSS/jquery.fancybox-1.3.4.css" rel="stylesheet" type="text/css" />
+    <script src="../../Content/Scripts/jquery.fancybox-1.3.4.pack.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
             $("#NavigateTO").tabs({collapsible: true, active:false});

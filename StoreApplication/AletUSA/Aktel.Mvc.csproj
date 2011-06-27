@@ -199,12 +199,12 @@
     <Content Include="Views\Filter\RenderDevices.ascx" />
     <Content Include="Views\Filter\RenderProduct.ascx" />
     <Content Include="Views\Filter\RenderSubCategories.ascx" />
-    <Content Include="Views\HomePage\RenderBrands.ascx" />
+    <Content Include="Views\Shared\Navigator\RenderBrands.ascx" />
     <Content Include="Views\HomePage\Index.aspx" />
     <Content Include="Views\HomePage\Index1.aspx" />
-    <Content Include="Views\HomePage\RenderCarriers.ascx" />
-    <Content Include="Views\HomePage\RenderManufacturers.ascx" />
-    <Content Include="Views\HomePage\RenderProductCategories.ascx" />
+    <Content Include="Views\Shared\Navigator\RenderCarriers.ascx" />
+    <Content Include="Views\Shared\Navigator\RenderManufacturers.ascx" />
+    <Content Include="Views\Shared\Navigator\RenderProductCategories.ascx" />
     <Content Include="Views\Search\RenderProduct.ascx" />
     <Content Include="Views\Search\SearchResults.aspx" />
     <Content Include="Views\Shared\Header.ascx" />

@@ -15,17 +15,24 @@ namespace Aktel.Mvc.Controllers
     public class FilterController : Controller
     {
         protected new ISession Session;
+
         public FilterController()
         {
             Session = MvcApplication.SessionFactory.GetCurrentSession();
         }
 
-        public ActionResult ByProductSubCategory(string id, string subId, string brand, string category, string device, string manufacturer)
+        public ActionResult ByProductSubCategory(string id, string subId, string brand, string category, string device,
+                                                 string manufacturer)
         {
             var dataService = new ProductService(Session);
             var products = dataService.GetProductsBySubCategoryService(subId);
-            var facetViewModel = new FacetViewModel {Name = subId, CategoryName = id};
-            List<Product> filteredProducts = products;
+            var facetViewModel = new FacetViewModel
+                                     {
+                                         Name = subId,
+                                         CategoryName = id,
+                                         HeaderandFooter = GetHeaderAndFooterInformation()
+                                     };
+            var filteredProducts = products;
 
             if (brand != null)
                 filteredProducts = products.Where(x => x.BrandName.Name.Equals(brand)).ToList();
@@ -54,7 +61,6 @@ namespace Aktel.Mvc.Controllers
                 facetViewModel.AssociatedDevices = tempDevices.GroupBy(x => x.Name).Select(x => x.First()).ToList();
             }
 
-
             var filters = new StringBuilder();
             if (brand != null)
                 filters.Append(" And Brand &rsaquo; " + brand);
@@ -62,11 +68,10 @@ namespace Aktel.Mvc.Controllers
                 filters.Append(" And Category &rsaquo; " + category);
             facetViewModel.Name = subId;
             facetViewModel.FilterName = filters.ToString();
-
             var result = new ViewResult
-            {
-                ViewData = { Model = facetViewModel }
-            };
+                             {
+                                 ViewData = {Model = facetViewModel}
+                             };
             return result;
         }
 
@@ -76,13 +81,18 @@ namespace Aktel.Mvc.Controllers
             var subCategories = dataService.GetSubCategoriesByCategoryService(id);
             var facetViewModel = new FacetViewModel()
                                      {
-                                         SubCategoryViewModel = new SubCategoryViewModel {Name = id, ProductSubCategories = subCategories, ProductCategories = dataService.GetProductCategories() },
-
+                                         SubCategoryViewModel = new SubCategoryViewModel
+                                                 {
+                                                     Name = id,
+                                                     ProductSubCategories = subCategories,
+                                                     ProductCategories = dataService.GetProductCategories()
+                                                 },
+                                         HeaderandFooter = GetHeaderAndFooterInformation()
                                      };
             var result = new ViewResult
-            {
-                ViewData = { Model = facetViewModel }
-            };
+                             {
+                                 ViewData = {Model = facetViewModel}
+                             };
             return result;
         }
 
@@ -94,8 +104,8 @@ namespace Aktel.Mvc.Controllers
             var productService = new ProductService(Session);
 
             var products = productService.GetProductsByManufacturerService(id);
-            var facetViewModel = new FacetViewModel();
-            List<Product> filteredProducts = products;
+            var facetViewModel = new FacetViewModel() {HeaderandFooter = GetHeaderAndFooterInformation()};
+            var filteredProducts = products;
 
             if (brand != null)
                 filteredProducts = products.Where(x => x.BrandName.Name.Equals(brand)).ToList();
@@ -109,12 +119,12 @@ namespace Aktel.Mvc.Controllers
                 if (!facetViewModel.ProductCategories.Any(c => c == tempProd.ProductSubCategory))
                 {
                     //if (!product.ProductSubCategory.Name.Equals(category))
-                        facetViewModel.ProductCategories.Add(product.ProductSubCategory);
+                    facetViewModel.ProductCategories.Add(product.ProductSubCategory);
                 }
                 if (!facetViewModel.BrandNames.Any(c => c == tempProd.BrandName))
                 {
                     //if (!product.BrandName.Name.Equals(brand))
-                        facetViewModel.BrandNames.Add(product.BrandName);
+                    facetViewModel.BrandNames.Add(product.BrandName);
                 }
 
                 var tempDevices = tempProd.PhoneDevices.ToList();
@@ -123,7 +133,6 @@ namespace Aktel.Mvc.Controllers
                 //if (!tempDevices.Any(x => x == prod1))
                 facetViewModel.AssociatedDevices = tempDevices.GroupBy(x => x.Name).Select(x => x.First()).ToList();
             }
-
 
             var filters = new StringBuilder();
             if (brand != null)
@@ -135,25 +144,30 @@ namespace Aktel.Mvc.Controllers
             facetViewModel.ByManufacturer = true;
 
             var result = new ViewResult
-            {
-                ViewData = { Model = facetViewModel }
-            };
+                             {
+                                 ViewData = {Model = facetViewModel}
+                             };
             return result;
         }
-        
 
-        #region By Carrier 
+        #region By Carrier
+
         //---------------------------------Controllers for ByCarrier------------------------------------------
         public ActionResult ByCarrier(string id)
         {
             var dataService = new CarrierService(Session);
             var devices = dataService.GetPhoneDevicesByCarrierNameService(id);
-            var facetViewModel = new FacetViewModel() {Name = id, AssociatedDevices = devices, Carriers = dataService.GetCarriers()};
-
+            var facetViewModel = new FacetViewModel
+                                     {
+                                         Name = id,
+                                         AssociatedDevices = devices,
+                                         Carriers = dataService.GetCarriers(),
+                                         HeaderandFooter = GetHeaderAndFooterInformation()
+                                     };
             var result = new ViewResult
-            {
-                ViewData = { Model = facetViewModel }
-            };
+                             {
+                                 ViewData = {Model = facetViewModel}
+                             };
             return result;
         }
 
@@ -161,8 +175,13 @@ namespace Aktel.Mvc.Controllers
         {
             var dataService = new ProductService(Session);
             var products = dataService.GetProductsByDeviceNameService(deviceID);
-            var facetViewModel = new FacetViewModel() { Name = deviceID, CarrierName = id};
-            List<Product> filteredProducts = products;
+            var facetViewModel = new FacetViewModel()
+                                     {
+                                         Name = deviceID,
+                                         CarrierName = id,
+                                         HeaderandFooter = GetHeaderAndFooterInformation()
+                                     };
+            var filteredProducts = products;
 
             if (brand != null)
                 filteredProducts = products.Where(x => x.BrandName.Name.Equals(brand)).ToList();
@@ -195,11 +214,10 @@ namespace Aktel.Mvc.Controllers
                 filters.Append(" And Category &rsaquo; " + category);
             facetViewModel.Name = deviceID;
             facetViewModel.FilterName = filters.ToString();
-
             var result = new ViewResult
-            {
-                ViewData = { Model = facetViewModel }
-            };
+                             {
+                                 ViewData = {Model = facetViewModel}
+                             };
             return result;
         }
 
@@ -207,9 +225,9 @@ namespace Aktel.Mvc.Controllers
         public ActionResult RenderDevices(List<PhoneDevice> devices)
         {
             var result = new PartialViewResult
-            {
-                ViewData = { Model = devices }
-            };
+                             {
+                                 ViewData = {Model = devices}
+                             };
 
             return result;
         }
@@ -229,6 +247,18 @@ namespace Aktel.Mvc.Controllers
         {
             return new List<ProductSubCategory>();
         }
+
         #endregion
+
+        private HeaderAndFooterViewModel GetHeaderAndFooterInformation()
+        {
+            return new HeaderAndFooterViewModel()
+                       {
+                           Manufacturers = new ManufacturerService(Session).GetManufacturers(),
+                           Carriers = new CarrierService(Session).GetCarriers(),
+                           BrandNames = new BrandService(Session).GetBrands(),
+                           ProductCategories = new ProductCategoryService(Session).GetProductCategories()
+                       };
+        }
     }
 }

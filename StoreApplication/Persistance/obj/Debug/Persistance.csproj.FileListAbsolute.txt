@@ -22,7 +22,6 @@ C:\Users\sjoshi\Documents\MVC\StoreApplication\Persistance\bin\Debug\NHibernate.
 C:\Users\sjoshi\Documents\MVC\StoreApplication\Persistance\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\sjoshi\Documents\MVC\StoreApplication\Persistance\obj\Debug\Persistance.dll
 C:\Users\sjoshi\Documents\MVC\StoreApplication\Persistance\obj\Debug\Persistance.pdb
-C:\StoreProject\MVC\StoreApplication\Persistance\obj\Debug\ResolveAssemblyReference.cache
 C:\StoreProject\MVC\StoreApplication\Persistance\bin\Debug\Persistance.dll.config
 C:\StoreProject\MVC\StoreApplication\Persistance\bin\Debug\Persistance.dll
 C:\StoreProject\MVC\StoreApplication\Persistance\bin\Debug\Persistance.pdb
@@ -34,7 +33,6 @@ C:\StoreProject\MVC\StoreApplication\Persistance\bin\Debug\NHibernate.ByteCode.C
 C:\StoreProject\MVC\StoreApplication\Persistance\bin\Debug\NHibernate.dll
 C:\StoreProject\MVC\StoreApplication\Persistance\bin\Debug\Remotion.Data.Linq.dll
 C:\StoreProject\MVC\StoreApplication\Persistance\bin\Debug\Aktel.Domain.pdb
-C:\StoreProject\MVC\StoreApplication\Persistance\bin\Debug\Castle.Core.xml
 C:\StoreProject\MVC\StoreApplication\Persistance\bin\Debug\FluentNHibernate.pdb
 C:\StoreProject\MVC\StoreApplication\Persistance\bin\Debug\FluentNHibernate.xml
 C:\StoreProject\MVC\StoreApplication\Persistance\bin\Debug\Iesi.Collections.pdb
@@ -43,5 +41,6 @@ C:\StoreProject\MVC\StoreApplication\Persistance\bin\Debug\NHibernate.pdb
 C:\StoreProject\MVC\StoreApplication\Persistance\bin\Debug\NHibernate.xml
 C:\StoreProject\MVC\StoreApplication\Persistance\bin\Debug\NHibernate.ByteCode.Castle.pdb
 C:\StoreProject\MVC\StoreApplication\Persistance\bin\Debug\NHibernate.ByteCode.Castle.xml
+C:\StoreProject\MVC\StoreApplication\Persistance\obj\Debug\ResolveAssemblyReference.cache
 C:\StoreProject\MVC\StoreApplication\Persistance\obj\Debug\Persistance.dll
 C:\StoreProject\MVC\StoreApplication\Persistance\obj\Debug\Persistance.pdb
