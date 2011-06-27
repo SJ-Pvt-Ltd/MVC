@@ -503,10 +503,11 @@ ul.tabbed a {text-decoration: none;}
 .filter_bar
 {
 	float: left;
-	border: 1px solid #BBBAB5;
+	border: 1px solid #83827A;
 	width: 200px;
-	margin: 3px 5px 10px 5px;
-	background-color: #fff;
+	margin: 3px 5px 3px 5px;
+	background-color: #fff;	
+	-webkit-border-radius: 4px;
 }
 #header_bar
 {
