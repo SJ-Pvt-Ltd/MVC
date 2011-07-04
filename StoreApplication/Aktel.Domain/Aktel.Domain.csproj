@@ -57,7 +57,9 @@
     <Compile Include="BrandName.cs" />
     <Compile Include="Carrier.cs" />
     <Compile Include="CarrierDevices.cs" />
+    <Compile Include="Cart.cs" />
     <Compile Include="Manufacturer.cs" />
+    <Compile Include="Order.cs" />
     <Compile Include="PhoneDevice.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductCategory.cs" />
@@ -68,6 +70,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="UserAccount.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

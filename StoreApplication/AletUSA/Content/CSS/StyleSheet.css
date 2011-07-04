@@ -507,7 +507,8 @@ ul.tabbed a {text-decoration: none;}
 	width: 200px;
 	margin: 3px 5px 3px 5px;
 	background-color: #fff;	
-	-webkit-border-radius: 4px;
+	-webkit-border-radius: 4px;	
+	background-color: #F3F3F3;
 }
 #header_bar
 {

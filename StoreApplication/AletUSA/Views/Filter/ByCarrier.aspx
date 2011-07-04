@@ -44,6 +44,8 @@
         </div>
         <div id="filter_categories">
             <div class="filter_bar">
+            <span class="content_title_sidebar_filter" style="margin-left: 40px; color: #666666">
+                    Filter By ..</span>
                 <div class="content_title_sidebar">
                     <div class="content_title_sidebar_filter_box"><span class="content_title_sidebar_filter">Browse By Carriers</span></div>
                     <div class="content_content_sidebar">

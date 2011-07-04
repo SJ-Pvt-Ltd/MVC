@@ -36,6 +36,65 @@
 	color: Chocolate;
 }
 
+.main_page_content_title
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 32px;
+	color: #444;
+	float: left;
+	background-color: #F3F3F3;
+	position: relative;
+	margin: 14px 0 14px 0;
+	height: 48px;
+	padding:0 4px;
+	text-transform:capitalize;
+}
+
+.main_page_content_content
+{	
+	border-bottom:1px dashed #BBBAB5;
+	margin:3px;
+}
+
+.sidebar_content_title
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 22px;
+	color: #CC0000;
+	float: left;
+	background-color: #E6E6E6;
+	position: relative;
+	margin: 4px 2px;
+	height: 36px;
+	padding: 0 4px;
+	text-transform: capitalize;
+	display:block;
+	width:90%;
+	border-top:1px solid #666;
+}
+
+.drop
+{
+	background: white;
+	margin-top: 5px;
+	position: absolute;
+	z-index: 500;
+	display: block;
+	padding: 0 8px 0 0;
+	height:100px;
+	width:100px;
+	border:1px solid gray;
+}
+
+.sidebar_content_content
+{	
+	border-bottom:1px dashed #BBBAB5;
+	margin:2px;
+	display:block;
+	width:100%;
+	margin-right:4px;
+}
+
 .content_title
 {
 	display: block;
@@ -46,6 +105,16 @@
 	color: #AAA;
 	overflow: auto;
 	border: 1px solid #BBBAB5;
+}
+
+.main_content_title
+{
+	display: block;
+	font-size: 1.4em;
+	padding: .5em 1em .5em 1em;
+	background-color:#FFF;
+	color: #AAA;
+	overflow: auto;
 }
 
 .content_content
@@ -62,29 +131,30 @@
 {
 	display: block;
 	font-size: 1em;
-	background-color: #FFF;
 	-webkit-border-radius: 0px;
 	color: #AAA;
 	padding-top: 0px;
 	border:solid 1px #D1D1D1;
-	margin:4px;
+	margin:4px;	
+	background-color: #F3F3F3;
 }
 
 .content_title_sidebar_filter_box
 {
-	border: solid 1px rgb(100, 100, 100);
-	background-color: rgb(100, 100, 100);
+	background-color: #E6E6E6;
+	border-top:1px solid #666;
 }
 
 .content_title_sidebar_filter
-{
+{	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	color: #CC0000;
+	position: relative;
+	margin: 4px 2px;
+	height: 36px;
+	padding: 0 1px;
 	text-transform: capitalize;
-	padding-bottom: 1px;
-	border-bottom: 1px dotted #D1D1D1;
-	color: #eeeeee;
-	font-size: 1.3em;
-	font-family: 'Bookman Old Style';
-	margin-left: 8px;
 }
 
 .content_content_sidebar
@@ -100,18 +170,18 @@
 
 .content_content_sidebar a
 {
-	font-family: Verdana;
+	font-family: Arial, Helvetica, sans-serif;
 	cursor: auto;
-	color: #666666;
+	color: #666;
 	text-decoration: none;
 	text-transform: capitalize;
 	padding: 4px;
-	font-size: 10pt;
+	font-size: 10.5pt;
 }
 
 .content_content_sidebar a:hover
 {
-	font-family: Verdana;
+	font-family: Arial, Helvetica, sans-serif;
 	cursor: auto;
 	color: #666667;
 	text-decoration: none;

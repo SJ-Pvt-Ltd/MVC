@@ -7,6 +7,8 @@
     <link rel="stylesheet" type="text/css" href="../../Content/CSS/StyleSheet.css" />
     <link rel="stylesheet" type="text/css" href="../../Content/CSS/NavigationBar.css" />
     <link rel="stylesheet" type="text/css" href="../../Content/CSS/jquery-ui-1.7.3.custom.css" />
+    <link href="../../Content/CSS/jquery.fancybox-1.3.4.css" rel="stylesheet" type="text/css" />
+    <script src="../../Content/Scripts/jquery.fancybox-1.3.4.pack.js" type="text/javascript"></script>
 </head>
 <body class="main_bg">
     <div class="content">
@@ -39,6 +41,8 @@
         </div>
         <div id="filter_categories">
             <div class="filter_bar">
+            <span class="content_title_sidebar_filter" style="margin-left: 40px; color: #666666">
+                    Filter By ..</span>
                 <%if (Model.ProductCategories.Count > 0)
                   {%>
                 <div class="content_title_sidebar">
