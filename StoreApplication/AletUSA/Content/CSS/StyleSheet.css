@@ -490,8 +490,12 @@ ul.tabbed a {text-decoration: none;}
 	padding-left: 11px;
 	font-family: 'Trebuchet MS';
 }
-#navigation a:hover {color: #EEE; text-decoration:underline}
-#navigation li.current_page_item a, #navigation li.current_page_parent a {color: #FEE;}
+#navigation a:hover
+{
+	color: #333333;
+	text-decoration: underline;
+}
+#navigation li.current_page_item a, #navigation li.current_page_parent a {color: #111111;}
 
 #nav_bar
 {

@@ -15,9 +15,11 @@ namespace Aktel.Mvc.Controllers
     public class FilterController : Controller
     {
         protected new ISession Session;
-
+        protected CartViewModel Cart;
         public FilterController()
         {
+
+            Cart = (CartViewModel)System.Web.HttpContext.Current.Application["Cart"];
             Session = MvcApplication.SessionFactory.GetCurrentSession();
         }
 
@@ -105,6 +107,10 @@ namespace Aktel.Mvc.Controllers
 
             var products = productService.GetProductsByManufacturerService(id);
             var facetViewModel = new FacetViewModel() {HeaderandFooter = GetHeaderAndFooterInformation()};
+            facetViewModel.cart.Cart = new Domain.Cart();
+            facetViewModel.cart.Cart.Items = new List<CartItem>();
+            if(Cart.Cart != null  && Cart.Cart.Items != null)
+                facetViewModel.cart = Cart;
             var filteredProducts = products;
 
             if (brand != null)

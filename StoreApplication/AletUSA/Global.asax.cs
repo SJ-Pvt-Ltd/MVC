@@ -2,6 +2,8 @@
 using System.Configuration;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Aktel.Domain;
+using Aktel.Mvc.Models;
 using NHibernate;
 using NHibernate.Context;
 using Persistance;
@@ -15,6 +17,7 @@ namespace Aktel.Mvc
     public class MvcApplication : System.Web.HttpApplication
     {
         public static ISessionFactory SessionFactory { get; private set; }
+        public CartViewModel cartViewModel { get; set; }
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
@@ -76,13 +79,14 @@ namespace Aktel.Mvc
             AreaRegistration.RegisterAllAreas();
             RegisterRoutes(RouteTable.Routes);
             SessionFactory = SessionHelper.OpenSessionFactory();
+            cartViewModel = new CartViewModel();
+            Application.Add("Cart", cartViewModel); 
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
             var session = SessionFactory.OpenSession();
             CurrentSessionContext.Bind(session);
-
         }
 
         protected void Application_EndRequest(object sender, EventArgs e)

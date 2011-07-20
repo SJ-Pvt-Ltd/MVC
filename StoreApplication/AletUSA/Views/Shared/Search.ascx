@@ -1,14 +1,16 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<Aktel.Mvc.Models.SearchViewModel>" %>
+<div>
 <% using (Html.BeginForm("Search", "Search"))
    {%>
     <div>        
         <% Model.searchString = ""; %>
-        <% =Html.TextBox("searchString", Model.searchString, new { @class = "zipcode_box", @size = "15", @maxlength = "5" })%>
+        <% =Html.TextBox("searchString", Model.searchString, new { @class = "zipcode_box", @size = "15", @maxlength = "100" })%>
         <%// =Html.Hidden("ZipcodeSearch_lll", Model.ZipcodeSearch_LLL)%>
         <input id="Search_SubmitButton" type="submit" value="Search" style="display: none" />
         <span style="color: #fff; font-size: 12pt; padding-left:3px">Search</span>
     </div>
 <% } %>
+</div>
 <script type="text/javascript">
     $(document).ready(function () {
         $("#searchString").keyup(function () {
@@ -20,11 +22,8 @@
 //                var tst = this.value.substring(0, (strLength) - 1); //if not numeric, take it out
 //                this.value = tst;
 //            }
-            if (this.value.length > 4) {
+            if (this.value.length > 10) {
                 $("#Search_SubmitButton").click();                
-            }
-            else{
-            alert("Invalid Search");
             }
         })
     });
@@ -36,5 +35,5 @@
 //    $(document).ready(function () {
 //        var hasError = $("#ZipcodeSearch_hasError").val();
 //        if (hasError == "True") $("#searchString").select();
-    });
+//    });
 </script>

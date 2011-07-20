@@ -92,7 +92,7 @@
 	margin:2px;
 	display:block;
 	width:100%;
-	margin-right:4px;
+	margin-right:2px;
 }
 
 .content_title
@@ -297,7 +297,7 @@
 
 #Search_box
 {
-	margin-top: 40px;
-	margin-left: 120px;
-	float: left;
+	margin-top: 40px;	
+	float:left;
+	display:inline;	
 }

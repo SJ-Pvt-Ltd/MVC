@@ -13,9 +13,11 @@ namespace Aktel.Mvc.Controllers
     public class HomePageController : Controller
     {
         protected new ISession Session;
+        protected new CartViewModel Cart;
         public HomePageController()
         {
             Session = MvcApplication.SessionFactory.GetCurrentSession();
+            Cart = (CartViewModel)System.Web.HttpContext.Current.Application["Cart"];
         }
 
         public ActionResult Index1()

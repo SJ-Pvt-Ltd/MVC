@@ -24,8 +24,7 @@ namespace Aktel.Mvc.Models
         public List<PhoneDevice> AssociatedDevices = new List<PhoneDevice>();
         public List<Manufacturer> Manufacturers = new List<Manufacturer>();
         public List<Carrier> Carriers = new List<Carrier>();
-        
-
+        public CartViewModel cart = new CartViewModel();
         public FacetViewModel AddProducts(List<Product> products)
         {
             _products = products;

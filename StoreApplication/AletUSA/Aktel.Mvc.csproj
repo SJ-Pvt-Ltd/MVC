@@ -88,15 +88,18 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\FilterController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CartViewModel.cs" />
     <Compile Include="Models\FacetViewModel.cs" />
     <Compile Include="Models\HeaderAndFooterViewModel.cs" />
     <Compile Include="Models\HomePageViewModel.cs" />
+    <Compile Include="Models\ProductsToCart.cs" />
     <Compile Include="Models\SearchResultsViewModel.cs" />
     <Compile Include="Models\SearchViewModel.cs" />
     <Compile Include="Models\SubCategoryViewModel.cs" />
@@ -188,12 +191,12 @@
     <Content Include="Content\Scripts\jquery.js" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery.fancybox-1.3.4.pack.js" />
+    <Content Include="Views\Cart\ViewCart.aspx" />
     <Content Include="Views\Filter\ByCarrier.aspx" />
     <Content Include="Views\Filter\ByManufacturer.aspx" />
     <Content Include="Views\Filter\ByPhoneDevice.aspx" />
     <Content Include="Views\Filter\ByProductCategory.aspx" />
     <Content Include="Views\Filter\ByProductSubCategory.aspx" />
-    <Content Include="Views\Filter\Copy of ByCarrier.aspx" />
     <Content Include="Views\Filter\FilterCategories.ascx" />
     <Content Include="Views\Filter\RenderDefaultSidebar.ascx" />
     <Content Include="Views\Filter\RenderDevices.ascx" />
