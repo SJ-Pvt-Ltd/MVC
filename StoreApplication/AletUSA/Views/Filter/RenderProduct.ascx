@@ -19,17 +19,15 @@
                 </div>
                 <div id="product_add_cart_link" style="margin: 4px 12px; padding: 1px; background-color: #F3F3F3;
                     color: #A9373A; display: inline; float: left;">
-                    <% using (Html.BeginForm("AddToCart", "Cart", FormMethod.Post))
+                    <% using (Html.BeginForm("AddToCart", "Cart", new { Id = item.Id }, FormMethod.Post))
                        {%>
                     <div id="product_qty_to_add" style="font-size: 10pt; margin: 5px; display: inline;
                         float: left">
-                        <span>Qty </span>
-                        <%=Html.TextBox("qty", 0 , new { @maxlength = "4", @style = "width:40px" })%>
+                        Qty  <span style="padding-left: 2px; height:20px; "><%=Html.TextBox("qty", 0, new { @maxlength = "4", @style = "border:1px solid gray; text-align:center;width:40px" })%></span>
                     </div>
-                    <div style="display: inline; float: left; margin: 5px;">
-                        <%=Html.Hidden("name", item.Name) %>
-                        <input id="AddTOCart_submit" type="submit" value="" style="display: none" />
-                        <span id="AddToCart" style="font-size: 9pt; cursor: pointer;">Add To Cart</span>
+                    <div id="<%=item.Id%>" style="display: inline; float: left; margin: 5px 2px;">
+                        <input id="AddTOCart_submit_<%=item.Id%>" type="submit" value="Add to Cart" style="font-size: 9pt;
+                            cursor: pointer; width: 65px; height: 20px; color: #A9373A;" />
                     </div>
                     <%} %>
                 </div>
@@ -45,12 +43,4 @@
         </div>
     </div>
     <% } %>
-</div>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#AddToCart").click(function () {
-            alert("Ala re ba ..");
-            $("#AddTOCart_submit").click();
-        })
-    });
-</script>
+</div> 

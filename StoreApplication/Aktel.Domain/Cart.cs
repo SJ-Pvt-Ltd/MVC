@@ -9,34 +9,43 @@ namespace Aktel.Domain
     {
         public virtual int Id { get; private set; }
         public virtual List<CartItem> Items { get; set; }
-        public virtual int TotalPrice { get; set; }
+        public virtual double GetTotalPrice() 
+        { 
+            if(Items.Count > 0)
+            {
+                var total = 0d;
+                Items.ForEach(x => total += x.Subtotal);
+                return total;
+            }
+            return 0;
+        }
 
         public virtual void AddItem(CartItem item)
         {
             Items.Add(item);
         }
-        public virtual void RemoveItem(string productName)
+        public virtual void RemoveItem(int Id)
         {
-            Items.Remove(Items.Where(x => x.Product.Name.Equals(productName)).First());
+            Items.Remove(Items.Where(x => x.Product.Id.Equals(Id)).First());
         }
 
-        public virtual void UpdateItemQuantity(string item, int updateToQty)
+        public virtual void UpdateItemQuantity(int item, int updateToQty)
         {
-           Items.Where(x => x.Product.Name.Equals(item)).First().UpdateQty(updateToQty);
+           Items.Where(x => x.Product.Id.Equals(item)).First().UpdateQty(updateToQty);
         }
 
-        public virtual bool IsItemAlreadyInCart(string itemName)
+        public virtual bool IsItemAlreadyInCart(int id)
         {
             if (Items == null)
                 Items = new List<CartItem>();
-            return Items.Any(x => x.Product.Name.Equals(itemName));
+            return Items.Any(x => x.Product.Id.Equals(id));
         }
 
         public bool Equals(Cart other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return other.Id == Id && Equals(other.Items, Items) && other.TotalPrice == TotalPrice;
+            return other.Id == Id && Equals(other.Items, Items) && other.GetTotalPrice() == GetTotalPrice();
         }
 
         public override bool Equals(object obj)
@@ -53,7 +62,6 @@ namespace Aktel.Domain
             {
                 int result = Id;
                 result = (result*397) ^ (Items != null ? Items.GetHashCode() : 0);
-                result = (result*397) ^ TotalPrice;
                 return result;
             }
         }

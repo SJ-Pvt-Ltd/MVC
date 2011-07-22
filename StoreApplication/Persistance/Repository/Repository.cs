@@ -85,5 +85,13 @@ namespace Persistance
                                                .List<Product>();
             return products;
         }
+
+        public static List<Product> ProductsByNameRepository(int Id, ISession session)
+        {
+            var products = (List<Product>)session.CreateCriteria(typeof(Product))
+                                               .Add(Restrictions.Eq("Id", Id))
+                                               .List<Product>();
+            return products;
+        }
     }
 }

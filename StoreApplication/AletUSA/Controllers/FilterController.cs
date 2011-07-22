@@ -100,7 +100,6 @@ namespace Aktel.Mvc.Controllers
 
         //-------------------------------------- Contollers for ByManufactuer-----------------------------------------------------------
 
-
         public ActionResult ByManufacturer(string id, string brand, string category, string device)
         {
             var productService = new ProductService(Session);

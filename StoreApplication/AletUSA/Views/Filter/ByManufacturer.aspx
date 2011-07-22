@@ -20,7 +20,7 @@
                 <div id="navigation-wrapper-2">
                     <div class="center-wrapper">
                         <div id="navigation">
-                            <ul class="tabbed" style="text-transform: capitalize;">
+                            <ul id="breadcrumb" class="tabbed" style="text-transform: capitalize;">
                                 <li><a style="text-decoration: none">You are here </a></li>
                                 <li><a>&rsaquo;&rsaquo;</a></li>
                                 <li class="current_page_item"><a href="/HomePage">Home</a></li>
@@ -35,7 +35,7 @@
                 </div>
             </div>
         </div>
-        <div id="filter_categories">
+        <%--<div id="filter_categories">
             <div class="filter_bar">
                 <span class="content_title_sidebar_filter" style="margin-left: 40px; color: #666666">
                     Filter By ..</span>
@@ -88,9 +88,33 @@
                 </div>
                 <%}%>
             </div>
-        </div>
-        <div id="productsByAllFilters" style="padding: 3px 5px 10px 5px; display: inline">
-            <div class="content_title">
+        </div>--%>
+        <div>
+            <div id="filters">
+                <div id="filterByModel" style="height: 100px; border: 1px dashed gray; background-color: White;
+                    margin: 3px 5px 3px 5px;">
+                    <div style="padding:3px;">
+                        <%using (Html.BeginForm("ByManufacturer", "Filter"))
+                          {%>
+                        <%if (Model.AssociatedDevices.Count > 0)
+                          { %>
+                            <span> <span style="font-size:14pt;">Select a Model</span>
+                                <select id="DeviceFilter" name="device" style="border:1px dashed #A3A3A3; background-color:#F3F3F3;">
+                                    <%foreach (var device in Model.AssociatedDevices)
+                                      {%>
+                                    <option value="<%=device.Name%>">
+                                        <%=Html.Encode(device.Name) %></option>
+                                    <%}%>
+                                </select>
+                                <input id="FilterDevice" type="submit" value="Filter By Device" style="font-size: 9pt;
+                            cursor: pointer; width: 65px; height: 20px; color: #A9373A; display:none" />
+                            </span>
+                        <%}
+                      }%>
+                    </div>
+                </div>
+            </div>
+            <div id="productsByAllFilters" class="content_title" style="margin: 3px 5px 10px 5px;">
                 <div id="productListing" style="display: inline; float: left; width: 75%">
                     <span class="content_title_sidebar_filter">Products Manufactuered By &rsaquo;
                         <%= Html.Encode(Model.Name) %>
@@ -98,25 +122,29 @@
                     </span>
                     <%Html.RenderPartial("RenderProduct", Model.GetAllProducts());%>
                 </div>
-                <div id="InlineCart" style="display: inline; float: left; width: 25%">
+                <div id="InlineCart" style="display: inline; float: left; width: 24%; border: 1px solid gray;
+                    padding: 3px; background-color: #F3F3F3">
                     <span class="content_title_sidebar_filter">Cart &rsaquo;</span>
                     <%if (Model.cart.Cart.Items.Count > 0)
                       { %>
-                    <div style="font-size: 9pt;">
-                        <div>
+                    <div style="font-size: 9pt; margin: 5px 6px;">
+                        <div style="border-bottom: 1px dashed gray; padding-bottom: 2px">
                             <%foreach (var item in Model.cart.Cart.Items)
                               { %>
-                            <div id="cartItem">
-                                <span>
+                            <div id="cartItem" style="border-bottom: 1px dashed gray">
+                                <span style="color: #666666">
                                     <%=Html.Encode(item.Product.Name)%></span><br />
                                 <span style="color: #A9373A;">Qty Added :
                                     <%=item.Qty%></span><br />
-                                <span style="color: #A9373A;">Cost
+                                <span style="color: #A9373A;">SubTotal:
                                     <%=item.Subtotal%></span><br />
                             </div>
                             <%}%>
                         </div>
-                        <span style="border-bottom: 1px dashed black; width: 100%;"></span>
+                        <div id="displayTotal" style="margin: 3px">
+                            <span style="color: #A9373A; font-size: 11pt;">Total Price:
+                                <%=Html.Encode(Model.cart.Cart.GetTotalPrice()) %></span>
+                        </div>
                     </div>
                     <%} %>
                 </div>
@@ -127,3 +155,12 @@
     </div>
 </body>
 </html>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#DeviceFilter").change(function () {
+            $("#FilterDevice").click();
+        });
+    });
+
+</script>

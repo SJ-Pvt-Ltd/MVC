@@ -45,5 +45,10 @@ namespace Persistance
         {
             return Repo.ProductsByNameRepository(name, Session);
         }
+
+        public List<Product> GetProductsById(int Id)
+        {
+            return Repo.ProductsByNameRepository(Id, Session);
+        }
     }
 }

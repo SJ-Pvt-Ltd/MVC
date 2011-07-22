@@ -22,6 +22,12 @@ namespace Aktel.Mvc
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapRoute(
+               "AddToCart",
+               "Cart/AddToCart/{Id}",
+               new { controller = "Cart", action = "AddToCart", Id="Id"  }
+               );
+
+            routes.MapRoute(
                 "FilterByPhoneDevice",
                 "Filter/ByCarrier/{Id}/ByPhoneDevice/{deviceId}",
                 new { controller = "Filter", action = "ByPhoneDevice" }
