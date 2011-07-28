@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using System.Web.UI.MobileControls;
 using Aktel.Domain;
 using Aktel.Mvc.Models;
@@ -22,6 +23,37 @@ namespace Aktel.Mvc.Controllers
             Cart = (CartViewModel)System.Web.HttpContext.Current.Application["Cart"];
             Session = MvcApplication.SessionFactory.GetCurrentSession();
         }
+        
+        public ActionResult ProductListing(string filterIdentifier, string id, string brand, string category, string device, string manufactuer, string sortOrder, string pageNumber)
+        {
+            var selectedFilterListings = new ListingOperators { Brand = brand??"All", Category = category??"All", Device = device??"All", sortOrder = sortOrder??"1", pageNumber = pageNumber??"1"  };
+            
+            var productService = new ProductService(Session);
+            //TODO: Modify this service to use filterIdentifier and Id to return products
+            var products = productService.GetProductsByManufacturerService(id);
+
+            var facetViewModel = new FacetViewModel
+                                     {
+                                         HeaderandFooter = GetHeaderAndFooterInformation(),
+                                         Breadcrumb = UpdateBreadcrumb(filterIdentifier, string.Empty, string.Empty),
+                                         cart = {Cart = new Domain.Cart {Items = new List<CartItem>()}}
+                                     };
+            if (Cart.Cart != null && Cart.Cart.Items != null)
+                facetViewModel.cart = Cart;
+
+            facetViewModel = filterProducts(facetViewModel, products, selectedFilterListings);
+            facetViewModel = UpdateFilterListing(facetViewModel, products);
+            facetViewModel.filterListings.listingOperator = selectedFilterListings;
+
+            var result = new ViewResult
+            {
+                ViewName = "ByManufacturer",
+                ViewData = { Model = facetViewModel }
+            };
+            return result;
+        }
+
+       
 
         public ActionResult ByProductSubCategory(string id, string subId, string brand, string category, string device,
                                                  string manufacturer)
@@ -30,8 +62,7 @@ namespace Aktel.Mvc.Controllers
             var products = dataService.GetProductsBySubCategoryService(subId);
             var facetViewModel = new FacetViewModel
                                      {
-                                         Name = subId,
-                                         CategoryName = id,
+                                         Breadcrumb = UpdateBreadcrumb(id, string.Empty, subId),
                                          HeaderandFooter = GetHeaderAndFooterInformation()
                                      };
             var filteredProducts = products;
@@ -47,29 +78,23 @@ namespace Aktel.Mvc.Controllers
             foreach (var product in products)
             {
                 var tempProd = product;
-                if (!facetViewModel.ProductCategories.Any(c => c == tempProd.ProductSubCategory))
+                if (!facetViewModel.filterListings.ProductCategories.Any(c => c == tempProd.ProductSubCategory))
                 {
-                    facetViewModel.ProductCategories.Add(product.ProductSubCategory);
+                    facetViewModel.filterListings.ProductCategories.Add(product.ProductSubCategory);
                 }
-                if (!facetViewModel.BrandNames.Any(c => c == tempProd.BrandName))
+                if (!facetViewModel.filterListings.BrandNames.Any(c => c == tempProd.BrandName))
                 {
-                    facetViewModel.BrandNames.Add(product.BrandName);
+                    facetViewModel.filterListings.BrandNames.Add(product.BrandName);
                 }
-                if (!facetViewModel.Manufacturers.Any(c => c == tempProd.Manufacturer))
+                if (!facetViewModel.filterListings.Manufacturers.Any(c => c == tempProd.Manufacturer))
                 {
-                    facetViewModel.Manufacturers.Add(product.Manufacturer);
+                    facetViewModel.filterListings.Manufacturers.Add(product.Manufacturer);
                 }
                 var tempDevices = tempProd.PhoneDevices.ToList();
-                facetViewModel.AssociatedDevices = tempDevices.GroupBy(x => x.Name).Select(x => x.First()).ToList();
+                facetViewModel.filterListings.AssociatedDevices = tempDevices.GroupBy(x => x.Name).Select(x => x.First()).ToList();
             }
-
-            var filters = new StringBuilder();
-            if (brand != null)
-                filters.Append(" And Brand &rsaquo; " + brand);
-            if (category != null)
-                filters.Append(" And Category &rsaquo; " + category);
-            facetViewModel.Name = subId;
-            facetViewModel.FilterName = filters.ToString();
+           
+            facetViewModel.Breadcrumb.Name = subId;
             var result = new ViewResult
                              {
                                  ViewData = {Model = facetViewModel}
@@ -83,12 +108,20 @@ namespace Aktel.Mvc.Controllers
             var subCategories = dataService.GetSubCategoriesByCategoryService(id);
             var facetViewModel = new FacetViewModel()
                                      {
-                                         SubCategoryViewModel = new SubCategoryViewModel
-                                                 {
-                                                     Name = id,
-                                                     ProductSubCategories = subCategories,
-                                                     ProductCategories = dataService.GetProductCategories()
-                                                 },
+                                         filterListings = new FilterListing()
+                                                              {
+                                                                  SubCategoryViewModel = new SubCategoryViewModel
+                                                                                             {
+                                                                                                 Name = id,
+                                                                                                 ProductSubCategories =
+                                                                                                     subCategories,
+                                                                                                 ProductCategories =
+                                                                                                     dataService.
+                                                                                                     GetProductCategories
+                                                                                                     ()
+                                                                                             }
+                                                              },
+
                                          HeaderandFooter = GetHeaderAndFooterInformation()
                                      };
             var result = new ViewResult
@@ -102,57 +135,67 @@ namespace Aktel.Mvc.Controllers
 
         public ActionResult ByManufacturer(string id, string brand, string category, string device)
         {
-            var productService = new ProductService(Session);
+            return RedirectToAction("ProductListing", new RouteValueDictionary()
+                                                          {
+                                                              {"filterIdentifier", "Manufacturer"},
+                                                              {"id", id},
+                                                              {"brand", brand},
+                                                              {"category", category},
+                                                              {"device", device},
+                                                              {"manufacturer", id},
+                                                              {"sortOrder", "1"},
+                                                              {"pageNumber", "1"}
+                                                          });
 
-            var products = productService.GetProductsByManufacturerService(id);
-            var facetViewModel = new FacetViewModel() {HeaderandFooter = GetHeaderAndFooterInformation()};
-            facetViewModel.cart.Cart = new Domain.Cart();
-            facetViewModel.cart.Cart.Items = new List<CartItem>();
-            if(Cart.Cart != null  && Cart.Cart.Items != null)
-                facetViewModel.cart = Cart;
-            var filteredProducts = products;
+            #region
 
-            if (brand != null)
-                filteredProducts = products.Where(x => x.BrandName.Name.Equals(brand)).ToList();
-            if (category != null)
-                filteredProducts = products.Where(x => x.ProductSubCategory.Name.Equals(category)).ToList();
-            facetViewModel.AddProducts(filteredProducts);
+            //var productService = new ProductService(Session);
 
-            foreach (var product in products)
-            {
-                var tempProd = product;
-                if (!facetViewModel.ProductCategories.Any(c => c == tempProd.ProductSubCategory))
-                {
-                    //if (!product.ProductSubCategory.Name.Equals(category))
-                    facetViewModel.ProductCategories.Add(product.ProductSubCategory);
-                }
-                if (!facetViewModel.BrandNames.Any(c => c == tempProd.BrandName))
-                {
-                    //if (!product.BrandName.Name.Equals(brand))
-                    facetViewModel.BrandNames.Add(product.BrandName);
-                }
+            //var products = productService.GetProductsByManufacturerService(id);
+            //var facetViewModel = new FacetViewModel() {HeaderandFooter = GetHeaderAndFooterInformation()};
+            //facetViewModel.cart.Cart = new Domain.Cart();
+            //facetViewModel.cart.Cart.Items = new List<CartItem>();
+            //if(Cart.Cart != null  && Cart.Cart.Items != null)
+            //    facetViewModel.cart = Cart;
+            //var filteredProducts = products;
 
-                var tempDevices = tempProd.PhoneDevices.ToList();
+            //if (brand != null)
+            //    filteredProducts = products.Where(x => x.BrandName.Name.Equals(brand)).ToList();
+            //if (category != null)
+            //    filteredProducts = products.Where(x => x.ProductSubCategory.Name.Equals(category)).ToList();
+            //facetViewModel.AddProducts(filteredProducts);
 
-                //PhoneDevice prod1 = prod;
-                //if (!tempDevices.Any(x => x == prod1))
-                facetViewModel.AssociatedDevices = tempDevices.GroupBy(x => x.Name).Select(x => x.First()).ToList();
-            }
+            //foreach (var product in products)
+            //{
+            //    var tempProd = product;
+            //    if (!facetViewModel.filterListings.ProductCategories.Any(c => c == tempProd.ProductSubCategory))
+            //    {
+            //        //if (!product.ProductSubCategory.Name.Equals(category))
+            //        facetViewModel.filterListings.ProductCategories.Add(product.ProductSubCategory);
+            //    }
+            //    if (!facetViewModel.filterListings.BrandNames.Any(c => c == tempProd.BrandName))
+            //    {
+            //        //if (!product.BrandName.Name.Equals(brand))
+            //        facetViewModel.filterListings.BrandNames.Add(product.BrandName);
+            //    }
 
-            var filters = new StringBuilder();
-            if (brand != null)
-                filters.Append(" And Brand &rsaquo; " + brand);
-            if (category != null)
-                filters.Append(" And Category &rsaquo; " + category);
-            facetViewModel.Name = id;
-            facetViewModel.FilterName = filters.ToString();
-            facetViewModel.ByManufacturer = true;
+            //    var tempDevices = tempProd.PhoneDevices.ToList();
 
-            var result = new ViewResult
-                             {
-                                 ViewData = {Model = facetViewModel}
-                             };
-            return result;
+            //    //PhoneDevice prod1 = prod;
+            //    //if (!tempDevices.Any(x => x == prod1))
+            //    facetViewModel.filterListings.AssociatedDevices = tempDevices.GroupBy(x => x.Name).Select(x => x.First()).ToList();
+            //}
+
+
+            //facetViewModel.Name = id;
+
+            //var result = new ViewResult
+            //                 {
+            //                     ViewData = {Model = facetViewModel}
+            //                 };
+            //return result;
+
+            #endregion
         }
 
         #region By Carrier
@@ -164,9 +207,12 @@ namespace Aktel.Mvc.Controllers
             var devices = dataService.GetPhoneDevicesByCarrierNameService(id);
             var facetViewModel = new FacetViewModel
                                      {
-                                         Name = id,
-                                         AssociatedDevices = devices,
-                                         Carriers = dataService.GetCarriers(),
+                                         Breadcrumb = UpdateBreadcrumb(id, string.Empty, string.Empty),
+                                         filterListings = new FilterListing()
+                                                              {
+                                                                  AssociatedDevices = devices,
+                                                                  Carriers = dataService.GetCarriers()
+                                                              },
                                          HeaderandFooter = GetHeaderAndFooterInformation()
                                      };
             var result = new ViewResult
@@ -182,8 +228,7 @@ namespace Aktel.Mvc.Controllers
             var products = dataService.GetProductsByDeviceNameService(deviceID);
             var facetViewModel = new FacetViewModel()
                                      {
-                                         Name = deviceID,
-                                         CarrierName = id,
+                                         Breadcrumb = UpdateBreadcrumb(deviceID, id, string.Empty),
                                          HeaderandFooter = GetHeaderAndFooterInformation()
                                      };
             var filteredProducts = products;
@@ -199,33 +244,27 @@ namespace Aktel.Mvc.Controllers
             foreach (var product in products)
             {
                 var tempProd = product;
-                if (!facetViewModel.ProductCategories.Any(c => c == tempProd.ProductSubCategory))
+                if (!facetViewModel.filterListings.ProductCategories.Any(c => c == tempProd.ProductSubCategory))
                 {
-                    facetViewModel.ProductCategories.Add(product.ProductSubCategory);
+                    facetViewModel.filterListings.ProductCategories.Add(product.ProductSubCategory);
                 }
-                if (!facetViewModel.BrandNames.Any(c => c == tempProd.BrandName))
+                if (!facetViewModel.filterListings.BrandNames.Any(c => c == tempProd.BrandName))
                 {
-                    facetViewModel.BrandNames.Add(product.BrandName);
+                    facetViewModel.filterListings.BrandNames.Add(product.BrandName);
                 }
-                if (!facetViewModel.Manufacturers.Any(c => c == tempProd.Manufacturer))
+                if (!facetViewModel.filterListings.Manufacturers.Any(c => c == tempProd.Manufacturer))
                 {
-                    facetViewModel.Manufacturers.Add(product.Manufacturer);
+                    facetViewModel.filterListings.Manufacturers.Add(product.Manufacturer);
                 }
             }
-            var filters = new StringBuilder();
-            if (brand != null)
-                filters.Append(" And Brand &rsaquo; " + brand);
-            if (category != null)
-                filters.Append(" And Category &rsaquo; " + category);
-            facetViewModel.Name = deviceID;
-            facetViewModel.FilterName = filters.ToString();
+
+            facetViewModel.Breadcrumb.Name = deviceID;
             var result = new ViewResult
                              {
                                  ViewData = {Model = facetViewModel}
                              };
             return result;
         }
-
 
         public ActionResult RenderDevices(List<PhoneDevice> devices)
         {
@@ -265,5 +304,58 @@ namespace Aktel.Mvc.Controllers
                            ProductCategories = new ProductCategoryService(Session).GetProductCategories()
                        };
         }
+        private static Breadcrumb UpdateBreadcrumb(string name, string carrierName, string categoryName)
+        {
+            return new Breadcrumb() { Name = name };
+        }
+        private FacetViewModel filterProducts(FacetViewModel facetViewModel, List<Product> products, ListingOperators listingOperators)
+        {
+            var filteredProducts = products;
+
+            if (!listingOperators.Brand.Equals("All"))
+                filteredProducts = products.Where(x => x.BrandName.Name.Equals(listingOperators.Brand)).ToList();
+            if (!listingOperators.Category.Equals("All"))
+                filteredProducts = filteredProducts.Where(x => x.ProductSubCategory.Name.Equals(listingOperators.Category)).ToList();
+            if (!listingOperators.Device.Equals("All"))
+            {
+                var tempProducts = new List<Product>();
+                filteredProducts.ForEach(x =>
+                {
+                    if (x.PhoneDevices.ToList().Any(p => p.Name.Equals(listingOperators.Device)))
+                        tempProducts.Add(x);
+                });
+                filteredProducts = tempProducts;
+            }
+
+
+            return facetViewModel.AddProducts(filteredProducts);
+
+        }
+        private FacetViewModel UpdateFilterListing(FacetViewModel facetViewModel, List<Product> products)
+        {
+            foreach (var product in products)
+            {
+                var tempProd = product;
+                if (!facetViewModel.filterListings.ProductCategories.Any(c => c == tempProd.ProductSubCategory))
+                {
+                    //if (!product.ProductSubCategory.Name.Equals(category))
+                    facetViewModel.filterListings.ProductCategories.Add(product.ProductSubCategory);
+                }
+                if (!facetViewModel.filterListings.BrandNames.Any(c => c == tempProd.BrandName))
+                {
+                    //if (!product.BrandName.Name.Equals(brand))
+                    facetViewModel.filterListings.BrandNames.Add(product.BrandName);
+                }
+
+                var tempDevices = tempProd.PhoneDevices.ToList();
+
+                //PhoneDevice prod1 = prod;
+                //if (!tempDevices.Any(x => x == prod1))
+                facetViewModel.filterListings.AssociatedDevices = tempDevices.GroupBy(x => x.Name).Select(x => x.First()).ToList();
+            }
+            return facetViewModel;
+        }
     }
+
+
 }

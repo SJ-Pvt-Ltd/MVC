@@ -50,7 +50,7 @@
                     <div class="content_title_sidebar_filter_box"><span class="content_title_sidebar_filter">Browse By Carriers</span></div>
                     <div class="content_content_sidebar">
                         <%
-                            foreach (var carrier in Model.Carriers)
+                            foreach (var carrier in Model.filterListings.Carriers)
                             {%>
                         <a href="/Filter/ByCarrier/<%=carrier.Name %>">&#187;
                             <%=carrier.Name%></a>
@@ -65,7 +65,7 @@
             <span class="content_title"><span class="content_title_sidebar_filter">Carrier &rsaquo;
                 <%= Html.Encode(Model.Name) %>
             </span>
-                <% Html.RenderPartial("RenderDevices", Model.AssociatedDevices);   %>
+                <% Html.RenderPartial("RenderDevices", Model.filterListings.AssociatedDevices);   %>
             </span>
         </div>
     </div>

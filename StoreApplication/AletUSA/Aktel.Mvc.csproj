@@ -95,11 +95,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Breadcrumb.cs" />
     <Compile Include="Models\CartViewModel.cs" />
     <Compile Include="Models\FacetViewModel.cs" />
+    <Compile Include="Models\FilterList.cs" />
     <Compile Include="Models\HeaderAndFooterViewModel.cs" />
     <Compile Include="Models\HomePageViewModel.cs" />
-    <Compile Include="Models\ProductsToCart.cs" />
     <Compile Include="Models\SearchResultsViewModel.cs" />
     <Compile Include="Models\SearchViewModel.cs" />
     <Compile Include="Models\SubCategoryViewModel.cs" />
@@ -130,9 +131,11 @@
     <Content Include="Content\img\content-wrapper.gif" />
     <Content Include="Content\img\Downloads\bottombarknobgray.png" />
     <Content Include="Content\img\Downloads\Carrier.jpg" />
+    <Content Include="Content\img\Downloads\checkout.png" />
     <Content Include="Content\img\Downloads\close_btn.gif" />
     <Content Include="Content\img\Downloads\close_btn.png" />
     <Content Include="Content\img\Downloads\Dock.png" />
+    <Content Include="Content\img\Downloads\viewcart.png" />
     <Content Include="Content\img\footer-wrapper.gif" />
     <Content Include="Content\img\gradient-light.gif" />
     <Content Include="Content\img\background_content.png" />
@@ -191,17 +194,21 @@
     <Content Include="Content\Scripts\jquery.js" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery.fancybox-1.3.4.pack.js" />
+    <Content Include="Views\Cart\RenderCartItems.ascx" />
     <Content Include="Views\Cart\ViewCart.aspx" />
+    <Content Include="Views\Filter\breadcrumb.ascx" />
     <Content Include="Views\Filter\ByCarrier.aspx" />
     <Content Include="Views\Filter\ByManufacturer.aspx" />
     <Content Include="Views\Filter\ByPhoneDevice.aspx" />
     <Content Include="Views\Filter\ByProductCategory.aspx" />
     <Content Include="Views\Filter\ByProductSubCategory.aspx" />
+    <Content Include="Views\Filter\Filterbar.ascx" />
     <Content Include="Views\Filter\FilterCategories.ascx" />
     <Content Include="Views\Filter\RenderDefaultSidebar.ascx" />
     <Content Include="Views\Filter\RenderDevices.ascx" />
     <Content Include="Views\Filter\RenderProduct.ascx" />
     <Content Include="Views\Filter\RenderSubCategories.ascx" />
+    <Content Include="Views\Shared\CartMiniView.ascx" />
     <Content Include="Views\Shared\Navigator\RenderBrands.ascx" />
     <Content Include="Views\HomePage\Index.aspx" />
     <Content Include="Views\HomePage\Index1.aspx" />

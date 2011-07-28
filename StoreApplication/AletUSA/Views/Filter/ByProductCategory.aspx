@@ -52,7 +52,7 @@
                     <div class="content_title_sidebar_filter_box"><span class="content_title_sidebar_filter">All Product Categories</span></div>
                     <div class="content_content_sidebar">
                         <%
-                            foreach (var category in Model.ProductCategories)
+                            foreach (var category in Model.filterListings.ProductCategories)
                             {%>
                         <a href="/Filter/ByProductCategory/<%=category.Name %>">
                             &#187; <%=category.Name%></a>
@@ -68,7 +68,7 @@
                 Categories for &rsaquo;
                 <%= Html.Encode(Model.Name) %>
             </span>
-                <% Html.RenderPartial("RenderSubCategories", Model.SubCategoryViewModel.ProductSubCategories);   %>
+                <% Html.RenderPartial("RenderSubCategories", Model.filterListings.SubCategoryViewModel.ProductSubCategories);   %>
             </span>
         </div>
     </div>

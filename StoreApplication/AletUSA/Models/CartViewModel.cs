@@ -9,6 +9,7 @@ namespace Aktel.Mvc.Models
     public class CartViewModel
     {
         public HeaderAndFooterViewModel HeaderandFooter = new HeaderAndFooterViewModel();
-        public Cart Cart { get; set; }
+        public Breadcrumb Breadcrumb = new Breadcrumb();
+        public Cart Cart = new Cart();
     } 
 }

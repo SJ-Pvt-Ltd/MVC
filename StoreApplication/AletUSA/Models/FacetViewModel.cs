@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Aktel.Domain;
+using Aktel.Mvc.Controllers;
 
 namespace Aktel.Mvc.Models
 {
@@ -11,20 +12,10 @@ namespace Aktel.Mvc.Models
     {
         public HeaderAndFooterViewModel HeaderandFooter = new HeaderAndFooterViewModel();
         private List<Product> _products = new List<Product>();
-        public bool ByManufacturer { get; set;}
-        public bool ByBrandName { get; set; }
-        public bool ByCarrier { get; set; }
-        public string Name { get; set;}
-        public string FilterName { get; set; }
-        public string CategoryName { get; set; }
-        public string CarrierName { get; set; }
-        public SubCategoryViewModel SubCategoryViewModel = new SubCategoryViewModel();
-        public List<BrandName> BrandNames = new List<BrandName>();
-        public List<ProductSubCategory> ProductCategories = new List<ProductSubCategory>();
-        public List<PhoneDevice> AssociatedDevices = new List<PhoneDevice>();
-        public List<Manufacturer> Manufacturers = new List<Manufacturer>();
-        public List<Carrier> Carriers = new List<Carrier>();
+        public Breadcrumb Breadcrumb = new Breadcrumb();
+        public FilterListing filterListings = new FilterListing();
         public CartViewModel cart = new CartViewModel();
+
         public FacetViewModel AddProducts(List<Product> products)
         {
             _products = products;
@@ -35,6 +26,5 @@ namespace Aktel.Mvc.Models
         {
             return _products;
         }
-
     }
 }

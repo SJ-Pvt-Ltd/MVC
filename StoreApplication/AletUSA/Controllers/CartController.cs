@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using Aktel.Domain;
 using Aktel.Mvc.Models;
@@ -50,6 +51,7 @@ namespace Aktel.Mvc.Controllers
             var cartModel = new CartViewModel
                                 {
                                     HeaderandFooter = new HeaderAndFooterViewModel(),
+                                    Breadcrumb = new Breadcrumb() {Name = "Shopping Cart"},
                                     Cart = Cart.Cart
                                 };
             var result = new ViewResult
