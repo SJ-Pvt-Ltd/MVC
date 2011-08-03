@@ -6,11 +6,11 @@
                 width="200px" height="60px" alt="Twister Wireless" title="Twister Wireless" />
         </a>
     </div>
-    <div id="Company_Name" >
+    <div id="Company_Name">
         <span style="font-size: 24pt; width: 100px; color: #E93A35">Twister Wireless. <span>
             Cellular Accessories Provider. </span></span>
     </div>
-    <div id="Search_box" style="width:30%">
+    <div id="Search_box" style="width: 30%">
         <%Html.RenderPartial("Search", Model.SearchModel); %>
     </div>
 </div>
@@ -19,38 +19,40 @@
         font-size: 10px; padding: 6px 20px; height: 15px;">
         <li style="float: left; padding-right: 48px; font-size: 14pt; color: white; text-decoration: none">
             View Accessories By: </li>
-        <li style="float: left; padding-right: 28px;"><a id="dropDown" href="#Carrier" title="Select a Carrier"
-            style="font-size: 14pt; color: white; text-decoration: none">Carriers</a>
-            <div id="dropDowns" style="display: none;">
-                <div id='Carrier' class='drop'>
-                    Test C
+        <li  style="float: left; padding-right: 28px;">
+            <div id="dropDownCarrier" href="#Carrier">
+                <a title="Select a Carrier" style="font-size: 14pt; color: white; text-decoration: none">
+                    Carriers</a>
+                <div id='Carrier' style="display: none;">
+                        <%Html.RenderPartial("~/Views/Shared/HeaderNavigation/Carriers.ascx", Model.Carriers); %>                    
                 </div>
             </div>
         </li>
-        <li style="float: left; padding-right: 28px"><a id="dropDown" href="#Manufacturer"
-            title="Select a Manufacturer" style="font-size: 14pt; color: white; text-decoration: none">
-            Manufactuers</a>
-            <div id="dropDowns" style="display: none;">
-                <div id='Manufacturer' class='drop'>
-                    Test M
+        <li style="float: left; padding-right: 28px">
+            <div id="dropDownManufacturer" href="#Manufacturer">
+                <a title="Select a Manufacturer" style="font-size: 14pt; color: white; text-decoration: none">
+                    Manufactuers</a>
+                <div id='Manufacturer'  style="display: none;">                   
+                        <%Html.RenderPartial("~/Views/Shared/HeaderNavigation/Manufacturers.ascx", Model.Manufacturers); %>                    
                 </div>
             </div>
         </li>
-        <li style="float: left; padding-right: 28px"><a id="dropDown" href="#Brand" title="Select a Brand"
-            style="font-size: 14pt; color: white; text-decoration: none">Brands</a>
-            <div id="dropDowns" style="display: none;">
-                <div id='Brand' class='drop'>
-                    Test B
+        <li style="float: left; padding-right: 28px">
+            <div id="dropDownBrand" href="#Brand">
+                <a title="Select a Brand" style="font-size: 14pt; color: white; text-decoration: none">
+                    Brands</a>
+                <div id='Brand' style="display: none;margin-left:-100px;">                    
+                       <%Html.RenderPartial("~/Views/Shared/HeaderNavigation/Brands.ascx", Model.BrandNames); %>                    
                 </div>
             </div>
         </li>
-        <li style="float: left; padding-right: 28px"><a id="dropDown" href="#ProductCat"
-            title="Select a Product Category" style="font-size: 14pt; color: white; text-decoration: none">
-            Product Categories</a>
-            <div id="dropDowns" style="display: none;">
-                <div id='ProductCat' class='drop'>
-                    Test P
-                </div>
+        <li style="float: left; padding-right: 28px">
+            <div id="dropDownCategory" href="#Category">
+                <a title="Select a Product Category" style="font-size: 14pt; color: white; text-decoration: none">
+                    Product Categories</a>
+                <div id='Category' style="display: none;margin-left:0px;">
+                       <%Html.RenderPartial("~/Views/Shared/HeaderNavigation/ProductCategories.ascx", Model.ProductCategories); %>
+                    </div>
             </div>
         </li>
     </ul>

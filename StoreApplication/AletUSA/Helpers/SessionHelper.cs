@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using FluentNHibernate.Cfg;
+﻿using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using FluentNHibernate.Conventions.Helpers;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
 using Persistance.Mappings;
 
-namespace Persistance
+namespace Aktel.Mvc.Helpers
 {
     public class SessionHelper
     {
         public static ISessionFactory CreateSessionFactory()
         {
-            var connectionString = Properties.Settings.Default.dataSource;
+            var connectionString = "Data Source=twisterwireless.com;Initial Catalog=Aktel_Dev1;user id=twisterwireles_web;pwd=twister";
+            //Properties.Settings.Default.dataSource;
             return Fluently
                 .Configure()
                 .Database(MsSqlConfiguration.MsSql2005.ConnectionString(connectionString))
@@ -29,7 +25,8 @@ namespace Persistance
 
         public static ISessionFactory OpenSessionFactory()
         {
-            var connectionString = Properties.Settings.Default.dataSource;
+            var connectionString = "Data Source=twisterwireless.com;Initial Catalog=Aktel_Dev1;user id=twisterwireles_web;pwd=twister";
+            //var connectionString = Properties.Settings.Default.dataSource;
             return Fluently
                 .Configure()
                 .Database(MsSqlConfiguration.MsSql2005.ConnectionString(connectionString))

@@ -85,7 +85,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Repository\Repository.cs" />
-    <Compile Include="Helpers\SessionHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Aktel.Domain\Aktel.Domain.csproj">

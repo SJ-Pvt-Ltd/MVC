@@ -95,6 +95,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\SessionHelper.cs" />
     <Compile Include="Models\Breadcrumb.cs" />
     <Compile Include="Models\CartViewModel.cs" />
     <Compile Include="Models\FacetViewModel.cs" />
@@ -118,15 +119,14 @@
     <Content Include="Content\img\back.jpg" />
     <Content Include="Content\img\bar.png" />
     <Content Include="Content\img\box.gif" />
-    <Content Include="Content\img\Carriers\ATT.gif" />
-    <Content Include="Content\img\Carriers\BoostMobile.gif" />
-    <Content Include="Content\img\Carriers\Comcast.gif" />
-    <Content Include="Content\img\Carriers\Cricket.gif" />
-    <Content Include="Content\img\Carriers\MetroPCS.gif" />
-    <Content Include="Content\img\Carriers\Sprint.gif" />
-    <Content Include="Content\img\Carriers\T-Mobile.gif" />
-    <Content Include="Content\img\Carriers\US Cellular.gif" />
-    <Content Include="Content\img\Carriers\Verizon.gif" />
+    <Content Include="Content\img\Carriers\ATT.jpg" />
+    <Content Include="Content\img\Carriers\BoostMobile.jpg" />
+    <Content Include="Content\img\Carriers\Cricket.jpg" />
+    <Content Include="Content\img\Carriers\MetroPCS.jpg" />
+    <Content Include="Content\img\Carriers\Sprint.jpg" />
+    <Content Include="Content\img\Carriers\T-Mobile.jpg" />
+    <Content Include="Content\img\Carriers\US Cellular.jpg" />
+    <Content Include="Content\img\Carriers\Verizon.jpg" />
     <Content Include="Content\img\content-two-columns.gif" />
     <Content Include="Content\img\content-wrapper.gif" />
     <Content Include="Content\img\Downloads\bottombarknobgray.png" />
@@ -172,7 +172,6 @@
     <Content Include="Content\img\navigation-arrow.gif" />
     <Content Include="Content\img\navigation-wrapper-2.gif" />
     <Content Include="Content\img\navigation.gif" />
-    <Content Include="Content\img\old-paper-texture.jpg" />
     <Content Include="Content\img\Products\Batteries.gif" />
     <Content Include="Content\img\Products\Battery Charger.gif" />
     <Content Include="Content\img\Products\Bluetooth Headset.gif" />
@@ -209,6 +208,10 @@
     <Content Include="Views\Filter\RenderProduct.ascx" />
     <Content Include="Views\Filter\RenderSubCategories.ascx" />
     <Content Include="Views\Shared\CartMiniView.ascx" />
+    <Content Include="Views\Shared\HeaderNavigation\Brands.ascx" />
+    <Content Include="Views\Shared\HeaderNavigation\Carriers.ascx" />
+    <Content Include="Views\Shared\HeaderNavigation\Manufacturers.ascx" />
+    <Content Include="Views\Shared\HeaderNavigation\ProductCategories.ascx" />
     <Content Include="Views\Shared\Navigator\RenderBrands.ascx" />
     <Content Include="Views\HomePage\Index.aspx" />
     <Content Include="Views\HomePage\Index1.aspx" />
@@ -219,7 +222,9 @@
     <Content Include="Views\Search\SearchResults.aspx" />
     <Content Include="Views\Shared\Header.ascx" />
     <Content Include="Views\Shared\Search.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Content\CSS\Site.css" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />

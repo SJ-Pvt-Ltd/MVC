@@ -24,15 +24,39 @@
     </script>  
 <script type="text/javascript">
     $(document).ready(function () {
-        $("a#dropDown").hover(function () {
-            $("#dropDowns").show();
+        $('#dropDownCarrier').hover(function () {
+            $('#Carrier').show();            
         }, function () {
-            $("#dropDowns").hide();
+            $('#Carrier').hide();            
+        });
+    });
+
+    $(document).ready(function () {
+        $('#dropDownManufacturer').hover(function () {
+            $('#Manufacturer').show();
+        }, function () {
+            $('#Manufacturer').hide();
+        });
+    });
+
+    $(document).ready(function () {
+        $('#dropDownCategory').hover(function () {
+            $('#Category').show();
+        }, function () {
+            $('#Category').hide();
+        });
+    });
+
+    $(document).ready(function () {
+        $('#dropDownBrand').hover(function () {
+            $('#Brand').show();
+        }, function () {
+            $('#Brand').hide();
         });
     });
 </script>  
 </head>
-<body class="main_bg">
+<body class="main_bg" style="overflow:auto; height:auto;">
     <div class="content" style="background-image: url(../Content/img/background_content1.png);
         background-repeat: repeat-x; background-position: bottom; border: 1px solid black;
         background-color: white; min-height: 650px">

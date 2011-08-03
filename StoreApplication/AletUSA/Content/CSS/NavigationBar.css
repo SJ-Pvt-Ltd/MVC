@@ -76,13 +76,12 @@
 .drop
 {
 	background: white;
-	margin-top: 5px;
 	position: absolute;
-	z-index: 500;
+	z-index: 100;
 	display: block;
 	padding: 0 8px 0 0;
 	height:100px;
-	width:100px;
+	width:400px;
 	border:1px solid gray;
 }
 
