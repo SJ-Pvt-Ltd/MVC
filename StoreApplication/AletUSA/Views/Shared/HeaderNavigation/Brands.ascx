@@ -10,7 +10,7 @@
     <%foreach (var brandName in Model)
     {%>
 		<li style="display: block; clear: both;width: 100%;overflow:hidden;margin-bottom: 7px; background: none;list-style-type:none;z-index: 110;">
-			<a id="gn214" href="#" style="color: #333;font-size: 12px;font-weight: normal;z-index: 110;"><%=Html.Encode(brandName.Name)%></a>
+			<a id="gn214" href="filter/ByBrand/<%=brandName.Name %>" style="color: #333;font-size: 12px;font-weight: normal;z-index: 110;"><%=Html.Encode(brandName.Name)%></a>
 		</li>
      <%}%>
 	</ul>
